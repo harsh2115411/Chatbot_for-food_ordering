@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Font Awesome Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Body styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e4f1f7; /* Light blue background */
+            text-align: center;
+            background-image: url('background image.jpg');
+            background-size: cover;
+            color: #333;
+            animation: fadeInBody 2s forwards;
+        }
+
+        /* Fade-in animation for body */
+        @keyframes fadeInBody {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Header section styling */
+        header {
+            background-color: #008080; /* Teal background */
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideDownHeader 1s ease-in-out;
+        }
+
+        /* Slide-in animation for header */
+        @keyframes slideDownHeader {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header title styling */
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 2.5em;
+        }
+
+        /* Navigation links styling */
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        /* Hover effect for navigation links */
+        nav a:hover {
+            color: #f9f9f9; /* Slightly lighter color for hover */
+        }
+
+        /* General section styling */
+        section {
+            margin: 30px;
+            background-color: #008080;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+            position: relative;
+            opacity: 0;
+            animation: fadeInSection 1s 1s forwards;
+        }
+
+        /* Fade-in animation for sections */
+        @keyframes fadeInSection {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section titles styling */
+        section h2 {
+            color: #fff; /* Darker teal color */
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #ff7043; /* Soft orange background */
+            text-align: center;
+            padding: 12px;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 1.1em;
+            animation: fadeInFooter 1s ease-in-out;
+        }
+
+        /* Fade-in animation for footer */
+        @keyframes fadeInFooter {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Chatbot iframe styling */
+        .chat-bot {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            border: none;
+            z-index: 1000;
+            border-radius: 8px;
+            animation: bounceIn 1.5s 1s forwards;
+        }
+
+        /* Bounce-in animation for chatbot */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Container that holds the content */
+        .container {
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        /* Image styling in sections */
+        section img {
+            display: block;
+            margin: 20px auto;
+            width: 90%;
+            height: auto;
+            border-radius: 8px;
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        /* Zoom-in animation for images */
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Home section image styling */
+        #home img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        /* Menu section grid container styling */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-items: center;
+            opacity: 0;
+            animation: fadeInGrid 1s 1.5s forwards;
+        }
+
+        /* Fade-in animation for grid */
+        @keyframes fadeInGrid {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Menu images styling inside grid */
+        .grid-container img {
+            width: 90%;
+            max-width: 300px;
+            border-radius: 12px;
+        }
+
+        /* Menu section background and padding */
+        #menu {
+            background-color: #008080;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Location and Contact Us sections styling */
+        #location, #contactus {
+            background-color: #008080;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            animation: slideInUp 1s forwards;
+        }
+
+        /* Slide-in animation for location and contact sections */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Location and Contact Us paragraph styling */
+        #location p, #contactus p {
+            font-size: 1.1em;
+            color: #fff;
+        }
+
+        /* Left side social media bar */
+        .social-bar {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #008080; /* Same color as header */
+            width: 60px;
+            height: 250px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: slideInLeft 1s 2s forwards;
+        }
+
+        /* Slide-in animation for social media bar */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Social media icons */
+        .social-bar a {
+            color: #008080;
+            text-decoration: none;
+            font-size: 2.5em;
+            margin: 15px 0;
+            transition: transform 0.2s;
+        }
+
+        /* Hover effect for social icons */
+        .social-bar a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Social media icon background (if needed) */
+        .social-bar a.facebook { color: #3b5998; }
+        .social-bar a.instagram { color: #e1306c; }
+        .social-bar a.whatsapp { color: #25D366; }
+        .social-bar a.youtube { color: #ff0000; }
+
+        /* Moving animation for element in top-right corner */
+        .moving-element {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #008080; /* Orange color */
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: moveElement 5s linear infinite;
+        }
+
+        /* Keyframes for moving animation */
+        @keyframes moveElement {
+            0% {
+                top: 20px;
+                right: 20px;
+            }
+            25% {
+                top: 100px;
+                right: 100px;
+            }
+            50% {
+                top: 20px;
+                right: 180px;
+            }
+            75% {
+                top: -50px;
+                right: 100px;
+            }
+            100% {
+                top: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pilu Fast Food</h1>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#location">Location</a>
+                <a href="#contactus">Contact Us</a>
+            </nav>
+        </header>
+
+        <!-- Banner section with an image -->
+        <section id="home">
+            <img src="banner.jpg" alt="Banner Image">
+        </section>
+
+        <!-- Menu section displaying images in a grid layout -->
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <div class="grid-container">
+                <img src="menu1.jpg" alt="Menu item 1">
+                <img src="menu2.jpg" alt="Menu item 2">
+                <img src="menu3.jpg" alt="Menu item 3">
+            </div>
+        </section>
+
+        <!-- Location section displaying the address -->
+        <section id="location">
+            <h2>Location</h2>
+            <p>38 Patli Gali, wide mohalla, Hapur</p>
+        </section>
+
+        <!-- Contact Us section displaying contact information -->
+        <section id="contactus">
+            <h2>Contact Us</h2>
+            <p>Got questions? Want to place an order? Call us at +917777777777 or email us at info@Pilufastfood.com</p>
+        </section>
+
+        <!-- Embedded chatbot iframe -->
+        <iframe class="chat-bot" width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/64381bed-7606-40ee-9a58-e97a94297058"></iframe>
+    </div>
+
+    <!-- Social media bar -->
+    <div class="social-bar">
+        <!-- Social media icons with Font Awesome -->
+        <a href="https://wa.me/917777777777" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com" class="youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <!-- Moving element in top-right corner -->
+    <div class="moving-element"></div>
+</body>
+</html>
